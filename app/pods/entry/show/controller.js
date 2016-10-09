@@ -3,14 +3,17 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     delete: function() {
-      this.get('model').deleteRecord();
-      this.get('model').save();
+      this.get('model.entry').deleteRecord();
+      this.get('model.entry').save();
       this.transitionToRoute('index');
     },
     update: function() {
-      var entrySelected = this.get('model');
-      entrySelected.save();
-      this.transitionToRoute('index');
+      var entrySelected = this.get('model.entry');
+      entrySelected.save().then(() => {
+        this.transitionToRoute('index');
+      }, function() {
+        // Error callback
+      });
     }
   }
 });

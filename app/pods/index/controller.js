@@ -9,14 +9,13 @@ export default Ember.Controller.extend({
         description: this.get('description'),
         keywords: this.get('keywords'),
         system: this.get('system'),
-        country: this.get('country')
+        country: this.store.peekRecord('country', this.get('country'))
       });
       this.set('title',"");
       this.set('url',"");
       this.set('description',"");
       this.set('keywords',"");
       this.set('system',"");
-      this.set('country',"");
       entry.save();
     }
   }

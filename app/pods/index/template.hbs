@@ -14,13 +14,18 @@
                 <div class="form-group">
                     {{input value=system class="form-control" placeholder="System"}} </div>
                 <div class="form-group">
-                    {{input value=country class="form-control" placeholder="Country"}} </div>
+                    {{#x-select class="form-control" value=country as |xs|}}
+                      {{#each model.countries as |item|}}
+                      {{#xs.option value=item.id}}{{item.name}}{{/xs.option}}
+                      {{/each}}
+                    {{/x-select}}
+                </div>
                 <button class="btn btn-primary">Add</button>
             </form>
         </div>
 
         <div class="col-xs-12 col-md-9 padding-top">
-          {{entry-list model=model}}
+          {{entry-list model=model countries=model.countries}}
         </div>
 
     </div>
