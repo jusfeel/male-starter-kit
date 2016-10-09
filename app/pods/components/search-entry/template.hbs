@@ -1,0 +1,5 @@
+{{input class="form-control form-control-lg" type="text" value=keyword key-up="search" placeholder="Type something here to search.." autofocus="autofocus"}}
+{{#each entries as |item index|}}
+  {{search-entry-item item=item}}
+{{/each}}
+{{yield}}

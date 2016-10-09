@@ -6,5 +6,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   keywords: DS.attr('string'),
   system: DS.attr('string'),
-  country: DS.attr('string')
+  country: DS.belongsTo('country')
 });

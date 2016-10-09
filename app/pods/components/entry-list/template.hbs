@@ -1,0 +1,29 @@
+
+            <div class="row">
+               {{#each model as |item|}}
+
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="card text-xs-left">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                  <a href={{item.url}} target="_blank">{{item.title}}</a>
+                                </h5>
+                                <span class="tag tag-pill tag-default">{{item.keywords}}</span>
+                                <p class="text-muted font-italic"> {{item.description}}</p>
+                                <p>
+                                  <span class="tag tag-default">{{item.system}}</span>
+                                  <span class="tag tag-default">{{item.country}}</span>
+                                </p>
+                                <div class="text-xs-right">
+                                  {{#link-to 'entry.show' item.id class="card-link"}}
+                                    {{fa-icon "pencil"}}
+                                  {{/link-to}}
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                {{/each}}
+            </div>
+
+{{yield}}
