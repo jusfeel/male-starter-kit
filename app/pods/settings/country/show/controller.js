@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
       this.transitionToRoute('settings.countries');
     },
     update: function() {
-      var itemSelected = this.get('model');
+      const itemSelected = this.get('model');
       itemSelected.save();
       this.transitionToRoute('settings.countries');
     }

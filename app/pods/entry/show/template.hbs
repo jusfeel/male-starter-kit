@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                     <label>Description:</label>
-                    {{textarea value=model.entry.description cols="40" rows="10" class="form-control"}}
+                    {{textarea value=model.entry.description cols="40" rows="3" class="form-control"}}
                 </div>
                 <div class="form-group">
                     <label>keywords:</label>
@@ -20,7 +20,11 @@
                 </div>
                 <div class="form-group">
                     <label>System:</label>
-                    {{input value=model.entry.system class="form-control"}}
+                    {{#x-select class="form-control" value=model.entry.system as |xs|}}
+                      {{#each model.systems as |item|}}
+                      {{#xs.option value=item}}{{item.name}}{{/xs.option}}
+                      {{/each}}
+                    {{/x-select}}
                 </div>
                 <div class="form-group">
                     <label>Country:</label>

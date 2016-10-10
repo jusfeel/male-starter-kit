@@ -5,12 +5,12 @@ export default Ember.Controller.extend({
     delete: function() {
       this.get('model').deleteRecord();
       this.get('model').save();
-      this.transitionToRoute('settings/countries');
+      this.transitionToRoute('settings.systems');
     },
     update: function() {
-      var itemSelected = this.get('model');
+      const itemSelected = this.get('model');
       itemSelected.save();
-      this.transitionToRoute('settings/countries');
+      this.transitionToRoute('settings.systems');
     }
   }
 });

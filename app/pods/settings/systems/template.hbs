@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-3 padding-top">
+            <form {{action 'save' on="submit" }}>
+                <div class="form-group">
+                    {{input value=systemName class="form-control" placeholder="System name"}} </div>
+                <button class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div class="col-xs-12 col-md-9 padding-top">
+            <div class="row">
+               {{#each model as |item|}}
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="card text-xs-left">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                  {{item.name}}
+                                </h5>
+                                <div class="text-xs-right">
+                                  {{#link-to 'settings.system.show' item.id class="card-link"}}
+                                    {{fa-icon "pencil"}}
+                                  {{/link-to}}
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

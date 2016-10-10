@@ -3,19 +3,18 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     save: function() {
-      var entry = this.store.createRecord('entry', {
+      const entry = this.store.createRecord('entry', {
         title: this.get('title'),
         url: this.get('url'),
         description: this.get('description'),
         keywords: this.get('keywords'),
-        system: this.get('system'),
+        system: this.store.peekRecord('system', this.get('system')),
         country: this.store.peekRecord('country', this.get('country'))
       });
       this.set('title',"");
       this.set('url',"");
       this.set('description',"");
       this.set('keywords',"");
-      this.set('system',"");
       entry.save();
     }
   }

@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
       this.transitionToRoute('index');
     },
     update: function() {
-      var entrySelected = this.get('model.entry');
+      const entrySelected = this.get('model.entry');
       entrySelected.save().then(() => {
         this.transitionToRoute('index');
       }, function() {

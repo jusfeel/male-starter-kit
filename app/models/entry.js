@@ -5,6 +5,6 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   description: DS.attr('string'),
   keywords: DS.attr('string'),
-  system: DS.attr('string'),
+  system: DS.belongsTo('system', { async: false }),
   country: DS.belongsTo('country', { async: false })
 });

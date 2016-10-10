@@ -5,8 +5,8 @@
                                 </h5>
                                 <p class="text-muted font-italic">
                                   {{item.description}}
-                                  <span class="tag tag-default">{{item.system}}</span>
-                                  <span class="tag tag-default">{{item.country}}</span>
+                                  <span class="tag tag-default">{{item.system.name}}</span>
+                                  <span class="tag tag-default">{{item.country.name}}</span>
                                 </p>
                                 <div class="text-xs-right">
                                   {{#link-to 'entry.show' item.id class="card-link"}}

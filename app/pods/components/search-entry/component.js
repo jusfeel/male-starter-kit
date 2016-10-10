@@ -8,7 +8,6 @@ export default Ember.Component.extend({
         this.set('entries', null);
         return;
       }
-
       const entries = this.get('store').peekAll('entry');
       this.set("entries", entries.filter(function(e) {
           return new RegExp(keyword, 'i').test(e.get('keywords'));

@@ -22,6 +22,11 @@ Router.map(function() {
     this.route('country', function() {
       this.route('show', {path: ":country_id"});
     });
+
+    this.route('systems');
+    this.route('system', function() {
+      this.route('show', {path: ":system_id"});
+    });
   });
 });
 
