@@ -4,13 +4,17 @@ export default Ember.Controller.extend({
   actions: {
     delete: function() {
       this.get('model').deleteRecord();
-      this.get('model').save();
-      this.transitionToRoute('settings.systems');
+      this.get('model').save().then(() => {
+        this.transitionToRoute('settings.systems');
+      });
     },
     update: function() {
       const itemSelected = this.get('model');
-      itemSelected.save();
-      this.transitionToRoute('settings.systems');
+      itemSelected.save().then(() => {
+        this.transitionToRoute('settings.systems');
+      }).catch((reason) => {
+        console.log(reason.message);
+      });
     }
   }
 });

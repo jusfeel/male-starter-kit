@@ -4,8 +4,9 @@ export default Ember.Controller.extend({
   actions: {
     delete: function() {
       this.get('model.entry').deleteRecord();
-      this.get('model.entry').save();
-      this.transitionToRoute('index');
+      this.get('model.entry').save().then(() => {
+	this.transitionToRoute('index');
+      });
     },
     update: function() {
       const entrySelected = this.get('model.entry');
